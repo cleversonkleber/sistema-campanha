@@ -43,4 +43,8 @@ public class UsuarioService {
         }).toList();
 
     }
+
+    public Usuario createdUser(Usuario usuario) {
+        return usuarioRepository.save(usuario);
+    }
 }
