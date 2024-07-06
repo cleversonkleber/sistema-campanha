@@ -6,6 +6,7 @@ import lombok.experimental.Accessors;
 
 import java.beans.ConstructorProperties;
 import java.time.LocalDate;
+import java.util.List;
 
 @Accessors(chain = true)
 @Data
