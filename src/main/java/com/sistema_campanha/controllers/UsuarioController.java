@@ -33,6 +33,11 @@ public class UsuarioController {
         return service.createdUser(usuario);
     }
 
+    @PostMapping(value = "/delete/{id}")
+    public void deleteById(@PathVariable Long id){
+        service.deleteById(id);
+    }
+
 
 
 
