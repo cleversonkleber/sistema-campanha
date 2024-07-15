@@ -51,4 +51,13 @@ public class UsuarioService {
     public void deleteById(Long id) {
         usuarioRepository.deleteById(id);
     }
+
+    public void atualiza(Usuario usuario) {
+        usuarioRepository.save(usuario);
+    }
+
+    public Usuario update(Usuario usuario) {
+        usuarioRepository.findById(usuario.getId()).orElseThrow();
+        return usuarioRepository.save(usuario);
+    }
 }

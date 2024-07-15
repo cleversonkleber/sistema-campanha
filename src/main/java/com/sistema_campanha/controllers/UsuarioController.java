@@ -3,6 +3,7 @@ package com.sistema_campanha.controllers;
 import com.sistema_campanha.dto.UserDTO;
 import com.sistema_campanha.entities.Usuario;
 import com.sistema_campanha.services.UsuarioService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -36,6 +37,11 @@ public class UsuarioController {
     @PostMapping(value = "/delete/{id}")
     public void deleteById(@PathVariable Long id){
         service.deleteById(id);
+    }
+
+    @PutMapping(value = "/update")
+    public Usuario update(@RequestBody Usuario usuario){
+        return service.update(usuario);
     }
 
 
