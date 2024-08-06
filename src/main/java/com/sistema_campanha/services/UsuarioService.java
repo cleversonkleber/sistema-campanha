@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
@@ -24,23 +25,15 @@ public class UsuarioService {
 
 
     @Transactional(readOnly = true)
-    public UserDTO findById(Long id){
-        Usuario usuario = usuarioRepository.findById(id).get();
-        var dto = new UserDTO();
-        BeanUtils.copyProperties(usuario,dto);
-        return dto;
+    public Optional<Usuario> findById(Long id){
+            return usuarioRepository.findById(id);
 
     }
 
 
     @GetMapping
-    public List<UserDTO> getAll() {
-        List<Usuario> usuarios = usuarioRepository.findAll();
-        return usuarios.stream().map(usuario -> {
-            UserDTO dto =  new UserDTO();
-            BeanUtils.copyProperties(usuario,dto);
-            return dto;
-        }).toList();
+    public List<Usuario> findAll() {
+       return usuarioRepository.findAll();
 
     }
 
